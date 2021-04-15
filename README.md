@@ -1,8 +1,10 @@
 <h1 align="center">
 	NOMI VR
 	</h1>
-	**This repo serves as a guide, to learn more about NOMI VR, head to the wiki**.
-## Part 1: The Headset
+	**This repo serves as a guide, to learn more about NOMI VR, head to the wiki**
+<h2>
+	Part 1: The Headset
+</h2>
 <h3 align="center">
 	An Open-Source VR Headset For Developers With SteamVR Support.
 </h3>
