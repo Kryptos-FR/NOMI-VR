@@ -15,12 +15,12 @@
 * Compatible With **Arduino**.
 * Experimental **Body-Tracking**
 
-------------
-
 #### MADE FOR DEVELOPERS, BY DEVELOPERS
 NOMI VR Headset was made so that developers could get their hands on expensive hardware at a relitively cheap price, all they have to do is **BUILD IT THEMSELVES**.
 
 NOMI VR Headset is **not a consumer product**, build at your own risk.
+
+------------
 
 ## Part 2: The Controllers | ***COMING SOON***
 <h3 align="center">
@@ -33,3 +33,5 @@ NOMI VR Headset is **not a consumer product**, build at your own risk.
 * Finger Tracking
 
 ### ***COMING SOON***
+
+NOMI VR Gloves are **not a consumer product**, build at your own risk.
