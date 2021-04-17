@@ -1,7 +1,6 @@
 /*
- * Alternative Relativty firmware using mpu9250 for 3dof head tracking
+ * Alternative NOMI VR firmware using mpu9250 for 3dof head tracking
  * created by 7ep3s with invaluable help from okawo and Seneral
- * you can get in touch on Relativty's Discord server
  */
 #include <SparkFunMPU9250-DMP.h>
 #include "Wire.h"
