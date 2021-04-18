@@ -1,0 +1,118 @@
+### Setting Up The Software For NOMI VR
+
+<p align="center"> <img src="resources/img/front.jpg"> </p>
+
+#### Installing NOMI VR Headset Driver for SteamVR
+
+The NOMI VR Driver is contained within `NOMI-VR_Headset/Build/nomivr_Driver/nomivr` folder. 
+
+⚠️ You’ll need to set it up by editing the JSON file `NOMI-VR_Headset/Build/nomivr_Driver/nomivr/resources/settings/default.vrsettings`
+
+If you are not using a NOMI VR PCB, you will need to change these:
+
+      "hmdPid" : 9,
+      "hmdVid": 4617,
+	  
+These are the USB HID device's unique Vendor and Product Identifieres (pid/vid)
+
+If you are using and Arduino Due, the correct values will be:
+
+      "hmdPid" : 62,
+      "hmdVid" : 9025,
+	  
+In case you are using a different board, the process to get the right values is as below:
+
+1.	Plug your board in
+
+2.	Select your board in Arduino IDE and click Tools/Get Board info. you will see something like this:
+
+```
+	BN: Arduino Due (Native USB Port)
+	VID: 2341
+	PID: 003e
+	SN: HIDHB
+```
+3.	Make note of the VID and PID numbers. These are hexadecimal values.
+
+	To apply them to the config, they need to be converted to int.
+	
+	If you are unsure how to do that, there is plenty online converters available.
+	
+	Such as: https://www.rapidtables.com/convert/number/hex-to-decimal.html
+
+4.	Change your hmdPid and hmdVid values to the converted values.
+
+Next, you need to set up the display coordinates and resolution.
+
+At first, you should have the HMD's display set up as a secondary screen extending your desktop,
+
+aligned onto the top right corner of your primary display.
+
+
+In the config file's "nomivr_extendedDisplay" segment, find and set these:
+```
+      "windowX" : *whatever your primary screen resolution's width is*,
+      "windowY" : 0,
+      "windowWidth" : *HMD's native resolution width*,
+      "windowHeight" : *HMD's native resolution height*,
+      "renderWidth" : *HMD's native resolution width*,
+      "renderHeight" : *HMD's native resolution height*,
+	  
+	  And at the bottom of this segment:
+	  
+      "IsDisplayRealDisplay" : true,
+      "IsDisplayOnDesktop" : true
+```  
+	  
+Make sure not to delete any "," symbols as that will break the config.
+
+Only the last item in the config should not have a "," symbol.
+
+
+If for whatever reason the above settings do not work out for you try:
+
+
+Set your HMD display as a mirrored display of your primary display.
+
+Change config as follows:
+```
+      "windowX" : 0,
+      "windowY" : 0,
+      "windowWidth" : *HMD's native resolution width*,
+      "windowHeight" : *HMD's native resolution height*,
+      "renderWidth" : *HMD's native resolution width*,
+      "renderHeight" : *HMD's native resolution height*,
+	
+      "IsDisplayRealDisplay" : false,
+      "IsDisplayOnDesktop" : true
+	
+```	
+⚠️ Please note that this may result in keyboard/mouse input not being captured by the VR window, should your game require it, it might become unplayable.
+
+You can also make IPD (Interpupillary Disance) adjustments within the configuration file:
+
+In the "nomivr_hmd" segment find and adjust:
+
+```
+      "IPDmeters" : 0.063,
+```
+
+You can also change the lens distortion correction by changing these:
+
+```
+      "DistortionK1" : 0.4,
+      "DistortionK2" : 0.5,
+```
+
+You can now install NOMI VR Headset Driver:
+- Locate your `vrpathreg.exe` program, usually located at `C:/Steam/steamapps/common/SteamVR/bin/win64/vrpathreg.exe`
+- Then open the Windows Command Prompt and run the following commands:
+`cd C:/Steam/steamapps/common/SteamVR/bin/win64
+vrpathreg.exe`
+
+And then assuming your `NOMI-VR_Headset/Build/nomivr_Driver/nomivr` driver folder is located at:
+`C:/code/NOMI-VR/NOMI-VR_Headset/Build/nomivr_Driver/nomivr`
+- run `vrpathreg adddriver C:/code/NOMI-VR/NOMI-VR_Headset/Build/nomivr_Driver/nomivr`
+
+Relativty Driver is now installed. You can uninstall it any time by running:  
+- `vrpathreg removedriver C:/code/NOMI-VR/NOMI-VR_Headset/Build/nomivr_Driver/nomivr`
