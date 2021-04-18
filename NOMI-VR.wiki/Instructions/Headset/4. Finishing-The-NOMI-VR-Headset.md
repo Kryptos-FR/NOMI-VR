@@ -1,0 +1,10 @@
+## Final Steps
+
+Everything is now set up to start playing with the NOMI VR Headset. 
+
+To start using NOMI VR:
+- Lay the headset on a flat surface with the front panel facing the ground
+- Plug in the Headset.
+- It will automatically calibrate after a few seconds.
+
+You can now run any SteamVR game!
